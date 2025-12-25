@@ -1,6 +1,6 @@
 #!/bin/bash
 OPS_DIR="/home/lu/ops_platform"
-GIT_REPO_URL="https://github.com/yourname/ops-platform.git" # 替换为你的远程仓库
+GIT_REPO_URL="https://github.com/luxiaojie-cyb/ops-platform.git" # 替换为你的远程仓库
 GIT_BRANCH="main"
 
 # 颜色定义
