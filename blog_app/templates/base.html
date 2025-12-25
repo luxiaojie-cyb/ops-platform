@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}我的运维博客{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><a href="/">运维技术博客</a></h1>
+            <nav>
+                {% if session.is_login %}
+                    <a href="/add">新增文章</a>
+                    <a href="/logout">退出登录</a>
+                {% else %}
+                    <a href="/login">管理员登录</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+    <main class="container main">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, msg in messages %}
+                    <div class="alert alert-{{ category }}">{{ msg }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 运维技术博客 | 基于Python Flask + Docker构建</p>
+        </div>
+    </footer>
+</body>
+</html>
